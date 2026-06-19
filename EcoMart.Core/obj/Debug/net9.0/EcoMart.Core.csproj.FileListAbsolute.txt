@@ -1,0 +1,12 @@
+D:\EcoMartProject\EcoMartSolution\EcoMart.Core\bin\Debug\net9.0\EcoMart.Core.deps.json
+D:\EcoMartProject\EcoMartSolution\EcoMart.Core\bin\Debug\net9.0\EcoMart.Core.dll
+D:\EcoMartProject\EcoMartSolution\EcoMart.Core\bin\Debug\net9.0\EcoMart.Core.pdb
+D:\EcoMartProject\EcoMartSolution\EcoMart.Core\obj\Debug\net9.0\EcoMart.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\EcoMartProject\EcoMartSolution\EcoMart.Core\obj\Debug\net9.0\EcoMart.Core.AssemblyInfoInputs.cache
+D:\EcoMartProject\EcoMartSolution\EcoMart.Core\obj\Debug\net9.0\EcoMart.Core.AssemblyInfo.cs
+D:\EcoMartProject\EcoMartSolution\EcoMart.Core\obj\Debug\net9.0\EcoMart.Core.csproj.CoreCompileInputs.cache
+D:\EcoMartProject\EcoMartSolution\EcoMart.Core\obj\Debug\net9.0\EcoMart.Core.sourcelink.json
+D:\EcoMartProject\EcoMartSolution\EcoMart.Core\obj\Debug\net9.0\EcoMart.Core.dll
+D:\EcoMartProject\EcoMartSolution\EcoMart.Core\obj\Debug\net9.0\refint\EcoMart.Core.dll
+D:\EcoMartProject\EcoMartSolution\EcoMart.Core\obj\Debug\net9.0\EcoMart.Core.pdb
+D:\EcoMartProject\EcoMartSolution\EcoMart.Core\obj\Debug\net9.0\ref\EcoMart.Core.dll

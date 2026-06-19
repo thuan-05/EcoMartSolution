@@ -1,0 +1,16 @@
+D:\EcoMartProject\EcoMartSolution\EcoMart.Infrastructure\bin\Debug\net9.0\EcoMart.Infrastructure.deps.json
+D:\EcoMartProject\EcoMartSolution\EcoMart.Infrastructure\bin\Debug\net9.0\EcoMart.Infrastructure.dll
+D:\EcoMartProject\EcoMartSolution\EcoMart.Infrastructure\bin\Debug\net9.0\EcoMart.Infrastructure.pdb
+D:\EcoMartProject\EcoMartSolution\EcoMart.Infrastructure\bin\Debug\net9.0\EcoMart.Core.dll
+D:\EcoMartProject\EcoMartSolution\EcoMart.Infrastructure\bin\Debug\net9.0\EcoMart.Core.pdb
+D:\EcoMartProject\EcoMartSolution\EcoMart.Infrastructure\obj\Debug\net9.0\EcoMart.Infrastructure.csproj.AssemblyReference.cache
+D:\EcoMartProject\EcoMartSolution\EcoMart.Infrastructure\obj\Debug\net9.0\EcoMart.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\EcoMartProject\EcoMartSolution\EcoMart.Infrastructure\obj\Debug\net9.0\EcoMart.Infrastructure.AssemblyInfoInputs.cache
+D:\EcoMartProject\EcoMartSolution\EcoMart.Infrastructure\obj\Debug\net9.0\EcoMart.Infrastructure.AssemblyInfo.cs
+D:\EcoMartProject\EcoMartSolution\EcoMart.Infrastructure\obj\Debug\net9.0\EcoMart.Infrastructure.csproj.CoreCompileInputs.cache
+D:\EcoMartProject\EcoMartSolution\EcoMart.Infrastructure\obj\Debug\net9.0\EcoMart.Infrastructure.sourcelink.json
+D:\EcoMartProject\EcoMartSolution\EcoMart.Infrastructure\obj\Debug\net9.0\EcoMart..CB96C2BF.Up2Date
+D:\EcoMartProject\EcoMartSolution\EcoMart.Infrastructure\obj\Debug\net9.0\EcoMart.Infrastructure.dll
+D:\EcoMartProject\EcoMartSolution\EcoMart.Infrastructure\obj\Debug\net9.0\refint\EcoMart.Infrastructure.dll
+D:\EcoMartProject\EcoMartSolution\EcoMart.Infrastructure\obj\Debug\net9.0\EcoMart.Infrastructure.pdb
+D:\EcoMartProject\EcoMartSolution\EcoMart.Infrastructure\obj\Debug\net9.0\ref\EcoMart.Infrastructure.dll
