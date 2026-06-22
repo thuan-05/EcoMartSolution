@@ -22,6 +22,7 @@ namespace EcoMart.Infrastructure.Services
 
         /// <summary>
         /// Xử lý toàn bộ quy trình ĐĂNG KÝ tài khoản mới.
+        /// Tạo đồng thời bản ghi Users (thông tin cá nhân) và Accounts (đăng nhập).
         /// </summary>
         public async Task<string> RegisterAsync(RegisterDto dto)
         {
@@ -38,17 +39,25 @@ namespace EcoMart.Infrastructure.Services
             // TUYỆT ĐỐI không lưu mật khẩu thô vào database!
             string passwordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password);
 
-            // BƯỚC 3: Tạo đối tượng User để lưu vào database
+            // BƯỚC 3: Tạo đối tượng User (thông tin cá nhân) để lưu vào bảng Users
             var newUser = new User
             {
-                Username = dto.Username,
-                PasswordHash = passwordHash,   // Lưu hash, không lưu mật khẩu gốc
                 FullName = dto.FullName,
-                Address = dto.Address,
-                Role = "Customer"              // Mặc định mọi người đăng ký đều là Customer
+                Email    = dto.Email,
+                PhoneNumber = dto.PhoneNumber,
+
+                // Tạo Account (thông tin đăng nhập) lồng vào luôn
+                // EF Core sẽ tự lưu cả 2 bảng trong 1 lần SaveChanges
+                Account = new Account
+                {
+                    Username     = dto.Username,
+                    PasswordHash = passwordHash,   // Lưu hash, không lưu mật khẩu gốc
+                    Role         = "Customer",     // Mặc định mọi người đăng ký đều là Customer
+                    IsActive     = true
+                }
             };
 
-            // BƯỚC 4: Lưu user mới vào database
+            // BƯỚC 4: Lưu vào database (tự động lưu cả Users lẫn Accounts)
             await _userRepository.AddAsync(newUser);
 
             return "Đăng ký thành công! Chào mừng bạn đến với EcoMart.";
@@ -59,7 +68,7 @@ namespace EcoMart.Infrastructure.Services
         /// </summary>
         public async Task<string> LoginAsync(LoginDto dto)
         {
-            // BƯỚC 1: Tìm user theo username trong database
+            // BƯỚC 1: Tìm user theo username trong bảng Accounts
             // Nếu không tìm thấy → tên đăng nhập sai
             var user = await _userRepository.GetByUsernameAsync(dto.Username);
             if (user == null)
@@ -70,7 +79,7 @@ namespace EcoMart.Infrastructure.Services
             // BƯỚC 2: Kiểm tra mật khẩu
             // BCrypt.Verify("mật khẩu người dùng nhập", "hash trong database")
             // → Không giải mã hash, mà băm lại rồi so sánh
-            bool isPasswordCorrect = BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash);
+            bool isPasswordCorrect = BCrypt.Net.BCrypt.Verify(dto.Password, user.Account!.PasswordHash);
             if (!isPasswordCorrect)
             {
                 // Cố tình trả về cùng thông báo như username sai

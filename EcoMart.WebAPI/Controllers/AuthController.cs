@@ -25,7 +25,7 @@ namespace EcoMart.WebAPI.Controllers
         /// <summary>
         /// Endpoint đăng ký tài khoản mới.
         /// HTTP POST: /api/auth/register
-        /// Body (JSON): { "username": "...", "password": "...", "fullName": "...", "address": "..." }
+        /// Body (JSON): { "username": "...", "password": "...", "fullName": "...", "email": "...", "phoneNumber": "..." }
         /// </summary>
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterDto dto)

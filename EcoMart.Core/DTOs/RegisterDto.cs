@@ -8,6 +8,7 @@ namespace EcoMart.Core.DTOs
     {
         /// <summary>
         /// Tên đăng nhập người dùng tự chọn (phải là duy nhất trong hệ thống).
+        /// Sẽ được lưu vào bảng Accounts.
         /// </summary>
         public string Username { get; set; } = string.Empty;
 
@@ -18,13 +19,18 @@ namespace EcoMart.Core.DTOs
         public string Password { get; set; } = string.Empty;
 
         /// <summary>
-        /// Họ và tên đầy đủ của người dùng.
+        /// Họ và tên đầy đủ của người dùng. Sẽ được lưu vào bảng Users.
         /// </summary>
         public string FullName { get; set; } = string.Empty;
 
         /// <summary>
-        /// Địa chỉ giao hàng mặc định của người dùng.
+        /// Địa chỉ email của người dùng. Sẽ được lưu vào bảng Users.
         /// </summary>
-        public string Address { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Số điện thoại liên lạc (có thể để trống). Sẽ được lưu vào bảng Users.
+        /// </summary>
+        public string? PhoneNumber { get; set; }
     }
 }

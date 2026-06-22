@@ -14,3 +14,5 @@ D:\EcoMartProject\EcoMartSolution\EcoMart.Infrastructure\obj\Debug\net9.0\EcoMar
 D:\EcoMartProject\EcoMartSolution\EcoMart.Infrastructure\obj\Debug\net9.0\refint\EcoMart.Infrastructure.dll
 D:\EcoMartProject\EcoMartSolution\EcoMart.Infrastructure\obj\Debug\net9.0\EcoMart.Infrastructure.pdb
 D:\EcoMartProject\EcoMartSolution\EcoMart.Infrastructure\obj\Debug\net9.0\ref\EcoMart.Infrastructure.dll
+D:\EcoMartProject\EcoMartSolution\EcoMart.Infrastructure\bin\Debug\net9.0\EcoMart.Infrastructure.runtimeconfig.json
+D:\EcoMartProject\EcoMartSolution\EcoMart.Infrastructure\obj\Debug\net9.0\EcoMart.Infrastructure.genruntimeconfig.cache
