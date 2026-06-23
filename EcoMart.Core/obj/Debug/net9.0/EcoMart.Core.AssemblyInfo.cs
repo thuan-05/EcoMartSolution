@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EcoMart.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5d6e74a102babdc5f85f10663b96e2e0f604af58")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ef475de0f5dd1de0a0ad2cfe3127921368334df0")]
 [assembly: System.Reflection.AssemblyProductAttribute("EcoMart.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EcoMart.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

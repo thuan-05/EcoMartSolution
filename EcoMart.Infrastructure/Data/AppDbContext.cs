@@ -3,13 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EcoMart.Infrastructure
 {
-    /// <summary>
-    /// AppDbContext là "cầu nối" chính thức giữa code C# và SQL Server.
-    /// Entity Framework Core dùng class này để biết:
-    /// - Kết nối tới database nào
-    /// - Bảng nào trong database tương ứng với class nào trong code
-    /// - Kiểu dữ liệu SQL chính xác, ràng buộc, khóa ngoại
-    /// </summary>
+    
     public class AppDbContext : DbContext
     {
         // Constructor nhận vào các tùy chọn cấu hình (connection string, v.v.)
@@ -18,22 +12,14 @@ namespace EcoMart.Infrastructure
         {
         }
 
-        /// <summary>DbSet&lt;User&gt; = đại diện cho bảng Users trong SQL Server.</summary>
+        
         public DbSet<User> Users { get; set; }
 
-        /// <summary>DbSet&lt;Account&gt; = đại diện cho bảng Accounts trong SQL Server.</summary>
         public DbSet<Account> Accounts { get; set; }
 
-        /// <summary>DbSet&lt;Address&gt; = đại diện cho bảng Addresses trong SQL Server.</summary>
         public DbSet<Address> Addresses { get; set; }
 
-        /// <summary>
-        /// Đây là nơi EF Core đọc để biết:
-        ///   - Kiểu SQL chính xác (NVARCHAR, VARCHAR, BIT...)
-        ///   - Độ dài tối đa (100, 15, 50...)
-        ///   - Ràng buộc NOT NULL, UNIQUE
-        ///   - Khóa chính, Khóa ngoại, quan hệ giữa các bảng
-        /// </summary>
+       
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
