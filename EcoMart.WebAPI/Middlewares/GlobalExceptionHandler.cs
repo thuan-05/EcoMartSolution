@@ -4,10 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EcoMart.WebAPI.Middlewares
 {
-    /// <summary>
-    /// Bắt mọi exception từ Service và trả về HTTP response JSON chuẩn.
-    /// Đăng ký tại Program.cs: AddExceptionHandler + UseExceptionHandler.
-    /// </summary>
+    
     public class GlobalExceptionHandler : IExceptionHandler
     {
         private readonly ILogger<GlobalExceptionHandler> _logger;

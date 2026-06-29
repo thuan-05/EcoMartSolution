@@ -27,8 +27,10 @@ namespace EcoMart.WebAPI.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginDto dto)
         {
-            string fullName = await _authService.LoginAsync(dto);
-            return Ok(new { message = $"Đăng nhập thành công! Chào mừng trở lại, {fullName}." });
+            
+            
+            LoginResponseDto response = await _authService.LoginAsync(dto);
+            return Ok(response);
         }
     }
 }

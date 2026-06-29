@@ -6,8 +6,7 @@ namespace EcoMart.Infrastructure
     
     public class AppDbContext : DbContext
     {
-        // Constructor nhận vào các tùy chọn cấu hình (connection string, v.v.)
-        // và chuyển cho lớp cha DbContext xử lý.
+        
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
         }
@@ -29,31 +28,29 @@ namespace EcoMart.Infrastructure
             // ════════════════════════════════════════════════════════════════
             modelBuilder.Entity<User>(entity =>
             {
-                entity.ToTable("Users"); // Tên bảng trong SQL Server
+                entity.ToTable("Users"); 
 
                 // Id: INT, Khóa chính, tự động tăng (IDENTITY)
                 entity.HasKey(u => u.Id);
                 entity.Property(u => u.Id)
-                      .ValueGeneratedOnAdd(); // → IDENTITY(1,1) trong SQL
+                      .ValueGeneratedOnAdd(); 
 
-                // FullName: NVARCHAR(100), NOT NULL
-                // NVARCHAR = Unicode → lưu được tiếng Việt
+                
                 entity.Property(u => u.FullName)
                       .HasColumnType("NVARCHAR(100)")
-                      .IsRequired(); // NOT NULL
+                      .IsRequired(); 
 
-                // Email: VARCHAR(100), NOT NULL, UNIQUE
-                // VARCHAR = không Unicode → đủ cho email (không dấu)
+            
                 entity.Property(u => u.Email)
                       .HasColumnType("VARCHAR(100)")
-                      .IsRequired(); // NOT NULL
+                      .IsRequired(); 
                 entity.HasIndex(u => u.Email)
-                      .IsUnique(); // UNIQUE CONSTRAINT
+                      .IsUnique(); 
 
                 // PhoneNumber: VARCHAR(15), có thể NULL
                 entity.Property(u => u.PhoneNumber)
                       .HasColumnType("VARCHAR(15)")
-                      .IsRequired(false); // NULL cho phép
+                      .IsRequired(false); 
             });
 
             // ════════════════════════════════════════════════════════════════
@@ -64,24 +61,20 @@ namespace EcoMart.Infrastructure
                 entity.ToTable("Accounts");
 
                 // AccountId: INT, Khóa chính
-                // KHÔNG tự động tăng vì AccountId = Users.Id (khóa ngoại 1-1)
                 entity.HasKey(a => a.AccountId);
                 entity.Property(a => a.AccountId)
-                      .ValueGeneratedNever(); // Không tự tăng, lấy từ Users.Id
+                      .ValueGeneratedNever(); 
 
-                // Username: VARCHAR(50), NOT NULL, UNIQUE
                 entity.Property(a => a.Username)
                       .HasColumnType("VARCHAR(50)")
                       .IsRequired();
                 entity.HasIndex(a => a.Username)
                       .IsUnique();
 
-                // PasswordHash: VARCHAR(MAX), NOT NULL
                 entity.Property(a => a.PasswordHash)
                       .HasColumnType("VARCHAR(MAX)")
                       .IsRequired();
 
-                // Role: VARCHAR(20), NOT NULL
                 entity.Property(a => a.Role)
                       .HasColumnType("VARCHAR(20)")
                       .IsRequired();
@@ -91,11 +84,10 @@ namespace EcoMart.Infrastructure
                       .HasColumnType("BIT")
                       .HasDefaultValue(true);
 
-                // ── Quan hệ 1-1: Account ←→ User ─────────────────────────
-                // AccountId vừa là Khóa chính, vừa là Khóa ngoại → Users.Id
-                entity.HasOne(a => a.User)          // Account có 1 User
-                      .WithOne(u => u.Account)       // User có 1 Account
-                      .HasForeignKey<Account>(a => a.AccountId); // FK: Accounts.AccountId → Users.Id
+                // ── Quan hệ 1-1: Account ←→ User 
+                entity.HasOne(a => a.User)          
+                      .WithOne(u => u.Account)     
+                      .HasForeignKey<Account>(a => a.AccountId); 
             });
 
             // ════════════════════════════════════════════════════════════════
@@ -108,38 +100,37 @@ namespace EcoMart.Infrastructure
                 // Id: INT, Khóa chính, tự động tăng
                 entity.HasKey(a => a.Id);
                 entity.Property(a => a.Id)
-                      .ValueGeneratedOnAdd(); // IDENTITY(1,1)
+                      .ValueGeneratedOnAdd(); 
 
-                // UserId: INT, NOT NULL, Khóa ngoại → Users.Id
                 entity.Property(a => a.UserId)
                       .IsRequired();
 
-                // ReceiverName: NVARCHAR(100), NOT NULL (tiếng Việt)
+                // ReceiverName: NVARCHAR(100), NOT NULL
                 entity.Property(a => a.ReceiverName)
                       .HasColumnType("NVARCHAR(100)")
                       .IsRequired();
 
-                // ReceiverPhone: VARCHAR(15), NOT NULL
+            
                 entity.Property(a => a.ReceiverPhone)
                       .HasColumnType("VARCHAR(15)")
                       .IsRequired();
 
-                // SpecificAddress: NVARCHAR(255), NOT NULL
+                
                 entity.Property(a => a.SpecificAddress)
                       .HasColumnType("NVARCHAR(255)")
                       .IsRequired();
 
-                // Ward: NVARCHAR(100), NOT NULL
+            
                 entity.Property(a => a.Ward)
                       .HasColumnType("NVARCHAR(100)")
                       .IsRequired();
 
-                // District: NVARCHAR(100), NOT NULL
+            
                 entity.Property(a => a.District)
                       .HasColumnType("NVARCHAR(100)")
                       .IsRequired();
 
-                // Province: NVARCHAR(100), NOT NULL
+                
                 entity.Property(a => a.Province)
                       .HasColumnType("NVARCHAR(100)")
                       .IsRequired();
@@ -149,11 +140,11 @@ namespace EcoMart.Infrastructure
                       .HasColumnType("BIT")
                       .HasDefaultValue(false);
 
-                // ── Quan hệ 1-Nhiều: User có Nhiều Address ───────────────
-                entity.HasOne(a => a.User)              // Address có 1 User
-                      .WithMany(u => u.Addresses)        // User có nhiều Addresses
-                      .HasForeignKey(a => a.UserId)      // FK: Addresses.UserId → Users.Id
-                      .OnDelete(DeleteBehavior.Cascade); // Xóa User → tự xóa Addresses
+                // ── Quan hệ 1-Nhiều: User có Nhiều Address 
+                entity.HasOne(a => a.User)           
+                      .WithMany(u => u.Addresses)       
+                      .HasForeignKey(a => a.UserId)      
+                      .OnDelete(DeleteBehavior.Cascade); 
             });
         }
     }

@@ -8,11 +8,13 @@ namespace EcoMart.Infrastructure.Services
 {
     public class AuthService : IAuthService
     {
-        private readonly IUserRepository _userRepository;
+        private readonly IUserRepository    _userRepository;
+        private readonly IJwtTokenGenerator _jwtTokenGenerator;
 
-        public AuthService(IUserRepository userRepository)
+        public AuthService(IUserRepository userRepository, IJwtTokenGenerator jwtTokenGenerator)
         {
-            _userRepository = userRepository;
+            _userRepository    = userRepository;
+            _jwtTokenGenerator = jwtTokenGenerator;
         }
 
         public async Task RegisterAsync(RegisterDto dto)
@@ -41,7 +43,7 @@ namespace EcoMart.Infrastructure.Services
             await _userRepository.AddAsync(newUser);
         }
 
-        public async Task<string> LoginAsync(LoginDto dto)
+        public async Task<LoginResponseDto> LoginAsync(LoginDto dto)
         {
             var user = await _userRepository.GetByUsernameAsync(dto.Username);
             if (user == null)
@@ -49,9 +51,17 @@ namespace EcoMart.Infrastructure.Services
 
             bool isPasswordCorrect = BCrypt.Net.BCrypt.Verify(dto.Password, user.Account!.PasswordHash);
             if (!isPasswordCorrect)
-                throw new InvalidCredentialsException(); // Cùng exception để không lộ username đúng/sai
+                throw new InvalidCredentialsException(); 
 
-            return user.FullName;
+            string token = _jwtTokenGenerator.GenerateToken(user);
+
+            return new LoginResponseDto
+            {
+                Token    = token,
+                FullName = user.FullName,
+                Role     = user.Account.Role
+            };
         }
     }
 }
+
